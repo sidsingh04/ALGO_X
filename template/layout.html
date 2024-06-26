@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>{{title}}</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+	{% for message in get_flashed_messages() %}
+      <li><div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>{{message}}</strong> 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div></li>
+{% endfor %}
+	<form action="/">
+		<button type="submit" class="btn btn-danger btn-lg float-right" >HOMEPAGE</button>
+	</form>
+
+	<div class="container">
+		<h2 align="center">{{title}}</h2>
+		<h5>Overview</h5>
+		<p>The user is required to give input in the input field as described by the Input Format.Then the User would be given the stats of how these processes would be executed by the FCFS algorithm. The algorithm would also print the Gantt chart for clear understanding of the working at particular time intervals.</p>
+     <h5>Input Format</h5>
+     {% block content %}
+     
+     {% endblock %}
+     <h5>Additional Constraints</h5>
+     <p>The user is advised to choose process attributes in such a way that the <b>PID is unique for each process</b></p>
+     <p>The user is also advised to give input as <b>integer only</b></p>
+     <br>
+     <form action= "{{link}}" method="POST">
+     <div class="mb-3">
+     <label for="exampleFormControlTextarea1" class="form-label"><b>Input Field:</b></label>
+     <textarea class="form-control bg-secondary text-white" id="text" name="input" rows="7" required></textarea>
+     </div>
+         <button type="submit" class="btn btn-success mb-3" style="backgrounnd-color:blue;">Run Program</button>
+    </form>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>	
+</body>
+</html>

@@ -1,0 +1,54 @@
+{% extends "layout2.html" %}
+
+{% block info %}
+   <b style="color:red">Higher the Priority,Higher the preference</b>
+   <br>
+   <b style="color:red">The value of scheduling length should be small in order to get small Gantt Chart</b>
+{% endblock %}
+
+{% block E %}
+  <th scope="col">Priority</th>
+{% endblock %}
+
+{% block A %}
+  {% for i in input %}
+      <tr>
+       <th scope="row">{{i.pid}}</th>
+       <td>{{i.at}}</td>
+       <td>{{i.bt}}</td>
+       <td>{{i.priority}}</td>
+     </tr>
+      {% endfor %} 
+{% endblock %}
+
+{% block B %}
+   {% for i in gantt.Chart %}
+       <tr>
+      <th scope="row">{{i.pid}}</th>
+      <td>{{i.st}}</td>
+      <td>{{i.et}}</td>     
+    </tr>
+     {% endfor %}
+{% endblock%}
+
+{% block C %}
+   {% for i in process %}
+     <tr>
+       <th scope="row">{{i.pid}}</th>
+       <td>{{i.at}}</td>
+       <td>{{i.bt}}</td>
+       <td>{{i.ct}}</td>
+       <td>{{i.tat}}</td>
+       <td>{{i.wt}}</td>
+     </tr>
+
+    {% endfor %}
+{% endblock %}
+
+{% block D %}
+  <ul>
+     <li>Average Turn-Around-Time : <b>{{param[0]}}</b></li>
+     <li>Average Waiting Time : <b>{{param[1]}}</b></li>
+     <li>Scheduling Length : <b>{{param[2]}}</b></li>
+   </ul>
+{% endblock %}
